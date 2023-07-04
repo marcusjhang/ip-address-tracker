@@ -1,3 +1,4 @@
+import "leaflet/dist/leaflet.css"
 import arrow from "./images/icon-arrow.svg"
 import background from "./images/pattern-bg-desktop.png"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -8,7 +9,7 @@ function App() {
   return (
     <section>
       <div className="absolute w-full">
-        <img src={background} alt="" className="h-80 obect-cover" />
+        <img src={background} alt="" className="h-80" />
       </div>
       <article className="relative p-8">
         <h1 className="text-3xl text-center text-white font-bold mb-8">IP Address Tracker</h1>
@@ -19,7 +20,7 @@ function App() {
           </button>
         </form>
       </article>
-      <article className="bg-white rounded-lg shadow p-8 mx-auto relative grid grid-cols-4 max-w-6xl">
+      <article className="bg-white rounded-lg shadow p-8 mx-auto relative grid grid-cols-4 max-w-6xl mb-8">
         <div className="border-r border-slate-400 px-4">
           <h2 className="font-bold text-slate-600">IP ADDRESS</h2>
           <p className="font-bold">192.212.174.101</p>
@@ -37,7 +38,12 @@ function App() {
           <p className="font-bold">SpaceX Starlink</p>
         </div>
       </article>
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer 
+        center={[51.505, -0.09]} 
+        zoom={13} 
+        scrollWheelZoom={false}
+        style={{ height: "600px", width: "100vw"}}
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
