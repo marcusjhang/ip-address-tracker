@@ -14,6 +14,7 @@ function App() {
       const getInitialData = async () => {
         const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=192.212.174.101`)
         const data = await res.json()
+        console.log(data)
         setAddress(data)
       }
 
@@ -30,13 +31,11 @@ function App() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault() //prevents website from reloading, which will call useEffect again
     try {
       const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ipAddress}`);
-      if (res.ok) {
-        const data = await res.json();
-        setAddress(data);
-      } 
+      const data = await res.json();
+      setAddress(data);
     } catch (error) {
       console.trace(error)
     }
@@ -57,7 +56,7 @@ function App() {
           </button>
         </form>
       </article>
-      {address &&
+      {address && //asynchronus API call thus need to wait till address is not null before loading, no key needed because the article isnt dynamically rendered
           <article className="bg-white rounded-lg shadow p-8 mx-auto relative grid grid-cols-4 max-w-6xl mb-8">
             <div className="border-r border-slate-400 px-4">
               <h2 className="font-bold text-slate-600">IP ADDRESS</h2>
@@ -79,7 +78,7 @@ function App() {
       }
       {address && 
           <MapContainer 
-              key={address.ip}
+              key={address.ip} //specifically for dynamically rendered elements, meaning the entire container changes, not just values within it
               center={[address.location.lat, address.location.lng]} 
               zoom={13} 
               scrollWheelZoom={true}
