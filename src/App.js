@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="w-100vw h-screen bg-gray-700">
       <article className="relative p-8">
-        <h1 className="text-3xl text-center text-white font-bold mb-8">IP Address Tracker</h1>
+        <h1 className="text-3xl text-center text-white font-bold mb-8">IP Locator</h1>
         <form className="flex justify-center max-w-2xl mx-auto" onSubmit={handleSubmit}>
           <input type="text" name="ipaddress" id="ipaddress" value={ipAddress} onChange={handleInputChange} placeholder="Search for any IP Adress or domain" required className="py-2 px-4 rounded-l-lg w-full"/>
           <button type="submit" className="bg-black py-4 px-4 hover:opacity-60 rounded-r-lg">
