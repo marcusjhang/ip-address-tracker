@@ -1,7 +1,6 @@
 import "leaflet/dist/leaflet.css"
 import icon from "./icon"
 import arrow from "./images/icon-arrow.svg"
-import background from "./images/pattern-bg-desktop.png"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useEffect, useState } from "react"
 
@@ -42,10 +41,7 @@ function App() {
 
 
   return (
-    <div className="w-100vw h-screen">
-      <div className="absolute w-full h-80">
-        <img src={background} alt="" className="w-full h-full" />
-      </div>
+    <div className="w-100vw h-screen bg-gray-700">
       <article className="relative p-8">
         <h1 className="text-3xl text-center text-white font-bold mb-8">IP Address Tracker</h1>
         <form className="flex justify-center max-w-2xl mx-auto" onSubmit={handleSubmit}>
