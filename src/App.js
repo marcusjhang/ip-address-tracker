@@ -14,7 +14,6 @@ function App() {
       const getInitialData = async () => {
         const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=192.212.174.101`)
         const data = await res.json()
-        console.log(data)
         setAddress(data)
       }
 
